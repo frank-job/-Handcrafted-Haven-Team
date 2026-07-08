@@ -28,7 +28,7 @@ export default function HavenWelcome() {
         
         <Link 
           href="/haven/signup" 
-          className="block w-8 bg-blue-600 text-[#FAF9F6] font-bold py-4 rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95"
+          className="block w-full bg-blue-600 text-[#FAF9F6] font-bold py-4 rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95"
         >
           BECOME AN ARTISAN
         </Link>
