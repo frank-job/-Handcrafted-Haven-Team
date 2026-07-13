@@ -1,11 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProductCard({ product }) {
     return (
         <Link href={`/products/${product.id}`} className="group block border border-black/10 hover:border-black transition-colors">
             <div className="aspect-square overflow-hidden bg-gray-50 group-hover:opacity-75 transition-opacity">
                 {/* Image Here */}
-                Image
+                <Image src={product.product_image} alt={product.product_name} width={500} height={500} className="object-cover w-full h-full" unoptimized />
             </div>
             <div className="mt-4">
                 <h3 className="text-sm text-gray-700">{product.name}</h3>
