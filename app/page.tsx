@@ -27,10 +27,10 @@ export default function HavenWelcome() {
         <h2 className="text-blue-700 font-serif text-2xl mb-6">Start your journey</h2>
         
         <Link 
-          href="/haven/signup" 
+          href="../haven/signup" 
           className="block w-full bg-blue-600 text-[#FAF9F6] font-bold py-4 rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95"
         >
-          BECOME AN ARTISAN
+         Sign Up
         </Link>
         
         <Link 
@@ -40,9 +40,12 @@ export default function HavenWelcome() {
           EXPLORE THE HAVEN
         </Link>
 
-        <button className="text-blue-500 text-sm mt-4 underline decoration-dotted underline-offset-4">
+        <Link
+          href="/login"
+          className="text-blue-500 text-sm mt-4 underline decoration-dotted underline-offset-4 hover:text-blue-700"
+        >
           Already a member? Sign in
-        </button>
+        </Link>
       </div>
 
     </main>
