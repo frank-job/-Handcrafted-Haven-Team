@@ -2,10 +2,15 @@
 "use client";
 import { useState } from "react";
 
-export default function ProductFilter({ categories, onFilterChange }) {
+interface ProductFilterProps {
+  categories: string[];
+  onFilterChange?: (category: string) => void;
+}
+
+export default function ProductFilter({ categories, onFilterChange }: ProductFilterProps) {
   const [selected, setSelected] = useState("All");
 
-  const handleClick = (category) => {
+  const handleClick = (category: string) => {
     setSelected(category);
     onFilterChange?.(category);
   };

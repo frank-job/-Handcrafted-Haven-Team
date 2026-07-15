@@ -4,8 +4,16 @@ import { useState, useMemo } from "react";
 import ProductCard from "./ProductCard";
 import ProductFilter from "./ProductFilter";
 
-export default function ProductGrid({ products }) {
-  const [activeCategory, setActiveCategory] = useState("All");
+interface Product {
+  _id: string;
+  product_name: string;
+  product_image: string;
+  price: number;
+  category: string;
+}
+
+export default function ProductGrid({ products }: { products: Product[] }) {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
 
   // Get unique categories from the product list
   const categories = useMemo(
