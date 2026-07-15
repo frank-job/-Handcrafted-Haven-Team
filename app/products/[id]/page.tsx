@@ -1,0 +1,1 @@
+// Single view of a product

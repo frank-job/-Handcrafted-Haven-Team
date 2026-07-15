@@ -1,21 +1,20 @@
 // Welcome page
 
-import Link from 'next/link';
-import HavenLogo from './ui/handLogo'; // Adjust path as needed
+import Header from './components/Header';
+import ProductGrid from '@/app/components/ProductGrid';
+import { products } from '@/lib/dummyProducts';
 
 export default function HavenWelcome() {
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center justify-between py-16 px-8 text-center">
+
+    
+    <main className="min-h-screen bg-white flex flex-col justify-start py-16 px-8 text-center">
       
       {/* 1. Header Area */}
-      <div className="mt-10 animate-fade-in">
-        <HavenLogo />
-        <p className="text-blue-900 mt-6 font-medium max-w-[280px] mx-auto leading-relaxed">
-          Connecting you to the world’s most talented artisans. 
-          Every item has a story.
-        </p>
-      </div>
+      <Header />
 
+      {/* 2. ProductGrid */}
+      <ProductGrid products={products} />
       {/* 2. Visual Center (Mockup of a craft) */}
       <div className="w-64 h-64 bg-blue-600 rounded-[3rem] opacity-50 relative flex items-center justify-center">
          {/* You can put a high-quality photo of pottery or woodwork here later */}
