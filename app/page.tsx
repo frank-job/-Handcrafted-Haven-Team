@@ -3,7 +3,7 @@
 import Header from './components/Header';
 import ProductGrid from '@/app/components/ProductGrid';
 import { products } from '@/lib/dummyProducts';
-import Link from 'next/link';
+
 
 export default function HavenWelcome() {
   return (
