@@ -26,7 +26,7 @@ export default async function TestDBPage() {
 
   return (
     <main className="min-h-screen bg-[#FAF9F6] flex flex-col items-center justify-center p-10">
-      <div className="bg-white p-8 rounded-[2rem] shadow-xl border-t-4 border-[#5F7161] text-center">
+      <div className="bg-white p-8 rounded-4xl shadow-xl border-t-4 border-[#5F7161] text-center">
         <h1 className="text-2xl font-serif font-bold text-[#5F7161] mb-4">
           Database Connection Test
         </h1>

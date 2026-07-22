@@ -1,12 +1,11 @@
 //Seller dashboard page - Boiketlo
 import SideNav from "@/app/ui/Nav/sidenav";
-import React from "react";
 import { geistMono, geistSans } from "@/app/ui/fonts";
 import { Card } from "@/app/ui/dashboard/cards";
 import RecentActivity from '@/app/ui/dashboard/recent-activity'
 
 
-export default function SellerDashboardPage({ children }: {children: React.ReactNode}) {
+export default function SellerDashboardPage() {
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       <aside className="w-full flex-none md:w-64">
@@ -29,8 +28,6 @@ export default function SellerDashboardPage({ children }: {children: React.React
         <section className="mb-8">
           <RecentActivity />
         </section>
-
-        <section>{children}</section>
       </main>
     </div>
   );
