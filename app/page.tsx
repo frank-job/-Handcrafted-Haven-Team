@@ -2,7 +2,6 @@
 
 import Header from './components/Header';
 import ProductGrid from '@/app/components/ProductGrid';
-import { products } from '@/lib/dummyProducts';
 
 
 export default function HavenWelcome() {
@@ -15,7 +14,7 @@ export default function HavenWelcome() {
       <Header />
 
       {/* 2. ProductGrid */}
-      <ProductGrid products={products} />
+      <ProductGrid />
       {/* 2. Visual Center (Mockup of a craft) */}
       
 
