@@ -10,7 +10,7 @@ interface Product {
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
-        <Link href={`/products/${product._id}`} className="group block border border-black/10 hover:border-black transition-colors">
+        <Link href={`/products/${product._id}`} className="group block border shadow-md  border-black/10 hover:border-black transition-colors">
             <div className="aspect-square overflow-hidden bg-gray-50 group-hover:opacity-75 transition-opacity">
                 {/* Image Here */}
                 <Image src={product.product_image} alt={product.product_name} width={500} height={500} className="object-cover w-full h-full" unoptimized />

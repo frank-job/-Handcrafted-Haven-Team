@@ -7,21 +7,31 @@ import {
   CubeIcon,
   HomeIcon,
   UserIcon,
+  ArrowRightOnRectangleIcon,
+
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
+
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard/seller', icon: HomeIcon },
+  { name: 'Home', href: '/dashboard', icon: HomeIcon },
+  { name: 'Products', href: '/dashboard/products', icon: CubeIcon },
+  { name: 'seller', href: '/dashboard/seller', icon: CubeIcon },
+  
   {
     name: 'Profile',
     href: '/dashboard/profile',
     icon: UserIcon,
   },
-  { name: 'Products', href: '/dashboard/products', icon: CubeIcon },
+  {
+    name: 'SIGNS OUT',
+    href: '#',
+    icon: ArrowRightOnRectangleIcon,
+  },
 ];
 
 export default function NavLinks() {

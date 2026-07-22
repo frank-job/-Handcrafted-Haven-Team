@@ -8,7 +8,7 @@ export default function HavenLogo() {
       <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-1">
         <span className="text-[#FAF9F6] font-serif text-2xl italic">H</span>
       </div>
-      <h1 className="font-serif text-xl font-bold tracking-tight text-black">
+      <h1 className="font-serif text-xl text-blue-300 font-bold tracking-tight ">
         Handcrafted <span className="italic text-blue-700">Haven</span>
       </h1>
             </div>

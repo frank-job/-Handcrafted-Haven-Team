@@ -12,12 +12,12 @@ export default function SellerDashboardPage() {
         <SideNav />
       </aside>
 
-      <main className="flex-1 p-6 md:p-12">
+      <main className="flex-1 p-6 md:p-12 bg-white">
         <div className="mb-8">
-          <h1 className={`${geistMono.className} mb-2 text-xl font-bold md:text-2xl`}>
+          <h1 className={`${geistMono.className} text-blue-600  mb-2 text-xl font-bold md:text-2xl`}>
             Seller Dashboard
           </h1>
-          <p className={geistSans.className}>Welcome back,</p>
+          <p className={`${geistMono.className} text-blue-600 mb-2 text-xl font-bold md:text-2xl`}>Welcome back, <span className="text-black">Frank</span> </p>
         </div>
 
         <section className="mb-8 grid gap-6 sm:grid-cols-2">
