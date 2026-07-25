@@ -1,3 +1,4 @@
+import Header from '@/app/components/Header';
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,7 +16,7 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   return (
-    <main className="max-w-5xl mx-auto px-4 py-12">
+    <main className="max-w-5xl mx-auto">
       <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">
         &larr; Back to products
       </Link>
