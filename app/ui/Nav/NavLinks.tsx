@@ -20,7 +20,6 @@ import clsx from 'clsx';
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   { name: 'Products', href: '/dashboard/products', icon: CubeIcon },
-  { name: 'seller', href: '/dashboard/seller', icon: CubeIcon },
   
   {
     name: 'Profile',

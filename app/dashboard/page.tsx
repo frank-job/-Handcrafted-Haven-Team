@@ -1,42 +1,31 @@
-import Header from '@/app/components/Header';
-import ProductGrid from '@/app/components/ProductGrid';
-import { products } from '@/lib/dummyProducts';
+//Seller dashboard page - Boiketlo
 import SideNav from "@/app/ui/Nav/sidenav";
+import { geistMono, geistSans } from "@/app/ui/fonts";
+import { Card } from "@/app/ui/dashboard/cards";
+import RecentActivity from '@/app/ui/dashboard/recent-activity'
 
-export default function Home() {
+
+export default function SellerDashboardPage() {
   return (
-  
-    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-white">
-      
-  
-      <div className="w-full flex-none md:w-64 border-r border-gray-100">
-        <SideNav />
-      </div>
+    <div className="flex min-h-screen flex-col md:flex-row">
 
-     
-      <div className="grow p-6 md:overflow-y-auto md:px-12 md:py-10">
-        
-  
-        <div className="mb-10 text-left">
-          <Header />
+      <main className="flex-1 p-6 md:p-12 bg-white">
+        <div className="mb-8">
+          <h1 className={`${geistMono.className} text-blue-600  mb-2 text-xl font-bold md:text-2xl`}>
+            Seller Dashboard
+          </h1>
+          <p className={`${geistMono.className} text-blue-600 mb-2 text-xl font-bold md:text-2xl`}>Welcome back, <span className="text-black">Frank</span> </p>
         </div>
 
-
-        <section>
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-black text-black tracking-tighter uppercase">
-              The Collection
-            </h2>
-            <div className="h-px flex-grow mx-4 bg-gray-100 hidden sm:block"></div>
-            <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {products.length} ITEMS
-            </span>
-          </div>
-
-          <ProductGrid />
+        <section className="mb-8 grid gap-6 sm:grid-cols-2">
+          <Card title="Avg. Rating" value="" type="rating" />
+          <Card title="Total Customers" value="" type="customers" />
         </section>
 
-      </div>
+        <section className="mb-8">
+          <RecentActivity />
+        </section>
+      </main>
     </div>
   );
 }
