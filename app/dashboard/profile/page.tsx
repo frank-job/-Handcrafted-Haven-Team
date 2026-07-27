@@ -34,7 +34,7 @@ export default async function ProfilePage() {
           {/* Profile Visual */}
           <div className="flex justify-center mb-6">
             <div className="h-28 w-24 bg-gray-200 rounded-[2rem] flex items-center justify-center text-3xl">
-              {user.image_url ? <img src={user.image_url} className="rounded-[2rem]" /> : '🏺'}
+              {user.image_url ? <img src={user.image_url} alt="Profile photo" className="rounded-[2rem]" /> : '🏺'}
             </div>
           </div>
 
