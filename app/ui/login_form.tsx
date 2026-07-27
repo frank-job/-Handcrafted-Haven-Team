@@ -1,16 +1,26 @@
 'use client';
 
 import { AtSymbolIcon, KeyIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { login } from "@/lib/actions";
+import { useActionState } from "react";
 
 export default function LoginForm() {
+  const [errorMessage, formAction, isPending] = useActionState(login, undefined);
+
   return (
-    <form className="space-y-3">
+    <form action={formAction} className="space-y-3">
       <div className="flex-1 rounded-3xl bg-white px-6 pb-8 pt-8 shadow-sm border border-gray-100">
         <h1 className="mb-3 font-serif text-2xl text-blue-700 font-bold">
           Welcome back
         </h1>
         <p className="text-sm text-black mb-6 italic">Log in to your artisan account.</p>
-        
+
+        {errorMessage?.message && (
+          <div className="mb-4 rounded-xl bg-red-50 border border-red-200 p-3 text-sm text-red-700">
+            {errorMessage.message}
+          </div>
+        )}
+
         <div className="w-full">
           {/* Email Field */}
           <div>
@@ -25,6 +35,7 @@ export default function LoginForm() {
                 name="email"
                 placeholder="Enter your email"
                 required
+                autoComplete="email"
               />
               <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400 peer-focus:text-[#5F7161]" />
             </div>
@@ -44,6 +55,7 @@ export default function LoginForm() {
                 placeholder="Enter password"
                 required
                 minLength={6}
+                autoComplete="current-password"
               />
               <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400 peer-focus:text-[#5F7161]" />
             </div>
@@ -51,8 +63,12 @@ export default function LoginForm() {
         </div>
 
         {/* Action Button */}
-        <button className="mt-8 flex h-12 w-full items-center justify-center rounded-xl bg-blue-400 px-4 text-sm font-bold text-white transition-all hover:bg-blue-800 active:scale-95 shadow-md">
-          Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-white" />
+        <button
+          disabled={isPending}
+          className="mt-8 flex h-12 w-full items-center justify-center rounded-xl bg-blue-400 px-4 text-sm font-bold text-white transition-all hover:bg-blue-800 active:scale-95 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isPending ? "Signing in..." : "Log in"}
+          <ArrowRightIcon className="ml-auto h-5 w-5 text-white" />
         </button>
       </div>
     </form>

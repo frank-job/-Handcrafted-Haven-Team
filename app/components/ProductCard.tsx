@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 {/* Image Here */}
                 <Image src={product.product_image} alt={product.product_name} width={500} height={500} className="object-cover w-full h-full" unoptimized />
             </div>
-            <div className="mt-4">
+            <div className="m-4">
                 <h3 className="text-sm text-gray-700">{product.product_name}</h3>
                 <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
                 </div>

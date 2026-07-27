@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import NavLinks from './NavLinks';
-import HavenLogo from "@/app/ui/handLogo";
+// import HavenLogo from "@/app/ui/handLogo";
 export default function SideNav() {
   return (
     <>
    
       <div className="flex h-full gap-2 bg-white flex-col px-3 py-4 md:px-2">
-         <HavenLogo />
+         {/* <HavenLogo /> */}
       <Link
         href="/"
       >

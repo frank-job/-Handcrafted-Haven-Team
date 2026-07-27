@@ -1,13 +1,13 @@
-import Header from '@/app/components/Header';
+
 import ProductGrid from '@/app/components/ProductGrid';
 import { products } from '@/lib/dummyProducts';
 
 export default function ProductsPage() {
   return (
     <>
-      <div className="mb-10 text-left">
+      {/* <div className="mb-10 text-left">
         <Header />
-      </div>
+      </div> */}
 
       <section>
         <div className="flex items-center justify-between mb-8">
