@@ -2,6 +2,10 @@
   "name": "handcrafted",
   "version": "0.1.0",
   "private": true,
+    "onlyBuiltDependencies": [
+      "bcrypt",
+      "sharp"
+    ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
