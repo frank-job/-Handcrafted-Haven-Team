@@ -8,7 +8,7 @@ export default function SideNav() {
     <>
    
       <div className="flex h-full gap-2 bg-white flex-col px-3 py-4 md:px-2">
-         <HavenLogo />
+         {/* <HavenLogo /> */}
       <Link
         href="/"
       >

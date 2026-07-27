@@ -106,16 +106,16 @@ export async function logout() {
 
 // ACTION: Update Profile Details
 export async function updateProfile(formData: FormData) {
-  const userId = formData.get('userId');
+  const userId = formData.get('userId') as string;
   const bio = formData.get('bio') as string;
   const location = formData.get('location') as string;
-  const imageUrl = formData.get('imageUrl') as string;
+  const imageUrl = formData.get('imageUrl') as string || null;
 
   try {
     // UPSERT: Insert a profile row if it doesn't exist, otherwise update it
     await sql`
       INSERT INTO profiles (user_id, bio, location, image_url)
-      VALUES (${Number(userId)}, ${bio}, ${location}, ${imageUrl})
+      VALUES (${userId}, ${bio}, ${location}, ${imageUrl})
       ON CONFLICT (user_id) 
       DO UPDATE SET bio = EXCLUDED.bio, location = EXCLUDED.location, image_url = EXCLUDED.image_url
     `;
