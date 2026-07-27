@@ -1,10 +1,11 @@
 'use client';
 
 import { AtSymbolIcon, KeyIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { login } from "@/lib/actions";
 
 export default function LoginForm() {
   return (
-    <form className="space-y-3">
+    <form action={login} className="space-y-3">
       <div className="flex-1 rounded-3xl bg-white px-6 pb-8 pt-8 shadow-sm border border-gray-100">
         <h1 className="mb-3 font-serif text-2xl text-blue-700 font-bold">
           Welcome back
