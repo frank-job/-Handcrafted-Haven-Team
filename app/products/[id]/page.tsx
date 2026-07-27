@@ -17,7 +17,7 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <main className="max-w-5xl mx-auto">
-      <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">
+      <Link href="/products" className="text-sm text-gray-500 hover:text-black transition-colors">
         &larr; Back to products
       </Link>
 
