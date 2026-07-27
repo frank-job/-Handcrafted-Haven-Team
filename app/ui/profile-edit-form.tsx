@@ -27,6 +27,7 @@ export default function ProfileForm({ userId, data }: { userId: string, data: Pr
   };
 
   return (
+    <>
     <form action={handleSubmit} className="mt-8 space-y-4">
       <input type="hidden" name="userId" value={userId} />
 
@@ -76,5 +77,7 @@ export default function ProfileForm({ userId, data }: { userId: string, data: Pr
         )}
       </button>
     </form>
+    
+      </>    
   );
 }

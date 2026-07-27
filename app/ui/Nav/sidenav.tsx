@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import NavLinks from './NavLinks';
-import HavenLogo from "@/app/ui/handLogo";
+// import HavenLogo from "@/app/ui/handLogo";
 export default function SideNav() {
   return (
     <>
