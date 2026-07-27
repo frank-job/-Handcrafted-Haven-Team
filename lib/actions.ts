@@ -53,7 +53,10 @@ export async function signUp(formData: FormData) {
   redirect('/login');
 }
 
-export async function login(formData: FormData) {
+export async function login(
+  state: { message: string } | undefined,
+  formData: FormData,
+): Promise<{ message: string } | undefined> {
   const email = formData.get('email') as string;
   const rawPassword = formData.get('password') as string;
 
