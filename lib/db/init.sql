@@ -26,3 +26,4 @@ CREATE TABLE IF NOT EXISTS profiles (
 
 -- 5. Create index on user_id for faster lookups
 CREATE INDEX IF NOT EXISTS idx_profiles_user_id ON profiles(user_id);
+--  openssl rand -base64 32
