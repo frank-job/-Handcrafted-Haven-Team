@@ -8,7 +8,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="border-b border-gray-200 z-50">
+    <header className="border-b border-gray-200 z-50 bg-white">
       <div className="max-w-7xl mx-auto w-full text-black py-6 flex justify-between items-center px-6 relative">
         <Link href="/" className="flex gap-2">
         <HavenLogo />

@@ -4,7 +4,7 @@ import HavenLogo from "@/app/ui/handLogo";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-gray-200 py-8 mt-16 bg-gray-100">
+    <footer className="w-full border-t border-gray-200 py-8 bg-gray-100">
      <div className="max-w-7xl mx-auto">
        <div className="px-8 mx-auto flex flex-col sm:flex-row justify-between gap-8">
         {/* Brand + tagline */}
