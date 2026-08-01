@@ -10,6 +10,8 @@ export default async function WelcomePage() {
   return (
     <main className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
+
+       
       <section className="relative py-24 md:py-36 px-6 text-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-amber-50" />
         <div className="relative z-10 max-w-3xl mx-auto">
@@ -62,6 +64,7 @@ export default async function WelcomePage() {
         </div>
         <ProductGrid />
       </section>
+     
     </main>
   );
 }
