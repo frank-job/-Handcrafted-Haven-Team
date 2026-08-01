@@ -8,8 +8,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full text-black py-4 flex justify-between items-center mb-10 relative">
-      <Link href="/" className="flex gap-2">
+    <header className="border-b border-gray-200 z-50">
+      <div className="max-w-7xl mx-auto w-full text-black py-6 flex justify-between items-center px-6 relative">
+        <Link href="/" className="flex gap-2">
         <HavenLogo />
       </Link>
 
@@ -40,7 +41,7 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <nav className="sm:hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-md">
+        <nav className="sm:hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-md z-50">
           <ul className="flex flex-col gap-2 p-4">
             <li><Link href="/products" onClick={() => setOpen(false)} className="block py-2">Products</Link></li>
             <li><Button variant="secondary" href="/signup" onClick={() => setOpen(false)}>Become a seller</Button></li>
@@ -48,6 +49,7 @@ export default function Header() {
           </ul>
         </nav>
       )}
+      </div>
     </header>
   );
 }

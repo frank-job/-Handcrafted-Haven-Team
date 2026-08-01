@@ -3,7 +3,7 @@ import ProductGrid from "@/app/components/ProductGrid";
 export default function ProductsPage() {
   return (
     <main className="flex flex-col min-h-screen bg-white">
-      <section className="px-6 max-w-7xl mx-auto w-full mb-20">
+      <section className="px-6 max-w-7xl mx-auto w-full mb-20 mt-16">
         <div className="flex items-center mb-8">
           <h1 className="text-2xl font-black tracking-tighter uppercase text-black">
             All Products
