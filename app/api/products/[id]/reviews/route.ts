@@ -14,7 +14,7 @@ interface RouteContext {
 export async function GET(_request: NextRequest, context: RouteContext) {
   const { id } = await context.params;
 
-  if (!getProductById(id)) {
+  if (!(await getProductById(id))) {
     return NextResponse.json({ error: "Product not found." }, { status: 404 });
   }
 
@@ -24,7 +24,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
 export async function POST(request: NextRequest, context: RouteContext) {
   const { id } = await context.params;
 
-  if (!getProductById(id)) {
+  if (!(await getProductById(id))) {
     return NextResponse.json({ error: "Product not found." }, { status: 404 });
   }
 
