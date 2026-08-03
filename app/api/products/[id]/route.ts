@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import {
-  deleteProduct,
+  deleteProductBySeller,
   getProductById,
-  updateProduct,
+  updateProductBySeller,
   type ProductInput,
 } from "@/lib/server/product-store";
 
@@ -36,7 +37,7 @@ function validatePatch(payload: Partial<ProductInput>) {
 
 export async function GET(_request: NextRequest, context: RouteContext) {
   const { id } = await context.params;
-  const product = getProductById(id);
+  const product = await getProductById(id);
 
   if (!product) {
     return NextResponse.json({ error: "Product not found." }, { status: 404 });
@@ -47,6 +48,23 @@ export async function GET(_request: NextRequest, context: RouteContext) {
 
 export async function PUT(request: NextRequest, context: RouteContext) {
   const { id } = await context.params;
+
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get("session");
+  if (!sessionCookie) {
+    return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
+  }
+
+  const sellerId = sessionCookie.value;
+
+  const existing = await getProductById(id);
+  if (!existing) {
+    return NextResponse.json({ error: "Product not found." }, { status: 404 });
+  }
+
+  if (existing.seller_id !== sellerId) {
+    return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+  }
 
   let payload: Partial<ProductInput>;
   try {
@@ -60,7 +78,7 @@ export async function PUT(request: NextRequest, context: RouteContext) {
     return NextResponse.json({ error: "Validation failed.", details: errors }, { status: 400 });
   }
 
-  const updated = updateProduct(id, {
+  const updated = await updateProductBySeller(id, sellerId, {
     product_name: payload.product_name?.trim(),
     product_image: payload.product_image?.trim(),
     product_description: payload.product_description?.trim(),
@@ -77,7 +95,25 @@ export async function PUT(request: NextRequest, context: RouteContext) {
 
 export async function DELETE(_request: NextRequest, context: RouteContext) {
   const { id } = await context.params;
-  const deleted = deleteProduct(id);
+
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get("session");
+  if (!sessionCookie) {
+    return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
+  }
+
+  const sellerId = sessionCookie.value;
+  const existing = await getProductById(id);
+
+  if (!existing) {
+    return NextResponse.json({ error: "Product not found." }, { status: 404 });
+  }
+
+  if (existing.seller_id !== sellerId) {
+    return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+  }
+
+  const deleted = await deleteProductBySeller(id, sellerId);
 
   if (!deleted) {
     return NextResponse.json({ error: "Product not found." }, { status: 404 });

@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
+import { sql } from "@vercel/postgres";
 import { createProduct, listProducts, type ProductInput, type ProductSort } from "@/lib/server/product-store";
 
 function parseNumber(value: string | null): number | undefined {
@@ -34,7 +36,7 @@ export async function GET(request: NextRequest) {
   const minPrice = parseNumber(params.get("minPrice"));
   const maxPrice = parseNumber(params.get("maxPrice"));
 
-  const result = listProducts({
+  const result = await listProducts({
     category: params.get("category") ?? undefined,
     search: params.get("search") ?? undefined,
     sort: parseSort(params.get("sort")),
@@ -48,6 +50,20 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get("session");
+
+  if (!sessionCookie) {
+    return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
+  }
+
+  const sellerId = sessionCookie.value;
+  const sellerLookup = await sql<{ id: string }>`SELECT id FROM users WHERE id = ${sellerId} LIMIT 1`;
+
+  if (sellerLookup.rows.length === 0) {
+    return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
+  }
+
   let payload: Partial<ProductInput>;
 
   try {
@@ -61,13 +77,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Validation failed.", details: errors }, { status: 400 });
   }
 
-  const product = createProduct({
+  const product = await createProduct({
     product_name: payload.product_name!.trim(),
     product_image: payload.product_image!.trim(),
     product_description: payload.product_description?.trim(),
     price: payload.price!,
     category: payload.category!.trim(),
-  });
+  }, sellerId);
 
   return NextResponse.json({ data: product }, { status: 201 });
 }

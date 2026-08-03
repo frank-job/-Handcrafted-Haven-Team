@@ -6,7 +6,7 @@ import ProductCard from '@/app/components/ProductCard';
 import { listProducts } from '@/lib/server/product-store';
 
 export default async function WelcomePage() {
-  const { data: featuredProducts } = listProducts({ limit: 4, sort: "newest" });
+  const { data: featuredProducts } = await listProducts({ limit: 4, sort: "newest" });
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
