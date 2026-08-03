@@ -11,7 +11,7 @@ export default function HavenLogo() {
       </svg>
       {/* Wordmark: sm and up only */}
       <div className="hidden sm:flex items-baseline gap-1 whitespace-nowrap">
-        <span className="text-[25px] font-medium text-black">Handcrafted</span>
+        <span className="text-[25px] font-bold uppercase text-black">Handcrafted</span>
         <span className="text-[25px] font-medium italic text-blue-600 font-serif">Haven</span>
       </div>
     </div>
