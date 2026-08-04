@@ -42,7 +42,7 @@ export default async function DashboardPage() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Link
-          href="/dashboard/seller"
+          href="/dashboard/profiles"
           className="group rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 shadow-lg hover:shadow-xl transition-all active:scale-[0.98]"
         >
           {user.image_url ? (
@@ -52,8 +52,8 @@ export default async function DashboardPage() {
           ) : (
             <UserIcon className="h-8 w-8 text-white/80 mb-4" />
           )}
-          <h2 className="text-xl font-bold text-white mb-2">Seller Portal</h2>
-          <p className="text-sm text-blue-200">Manage your products, view ratings & more →</p>
+          <h2 className="text-xl font-bold text-white mb-2">Seller Profile</h2>
+          <p className="text-sm text-blue-200">Edit your story, location & more →</p>
         </Link>
 
         <Link
