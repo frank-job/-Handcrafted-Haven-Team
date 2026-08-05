@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import ProductCard from "./ProductCard";
 import ProductFilter from "./ProductFilter";
+import Link from "next/link";
 
 interface Product {
   _id: string;
@@ -128,6 +129,21 @@ export default function ProductGrid() {
         <p className="text-gray-500 text-center py-12">No products found.</p>
       ) : (
         <>
+          <section className="mb-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/dashboard/products/new"
+              className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-blue-700"
+              >
+              Add Product
+            </Link>
+            <Link
+              href="/dashboard/products/manage"
+              className="inline-flex items-center rounded-xl border border-gray-300 px-5 py-3 text-sm font-bold uppercase tracking-wide text-gray-700 transition-colors hover:bg-gray-100"
+              >
+              Manage Products
+            </Link>
+          </section>
+
           <p className="mb-6 text-sm text-gray-600">
             Showing {products.length} item{products.length === 1 ? "" : "s"}
           </p>
