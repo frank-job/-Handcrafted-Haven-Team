@@ -42,7 +42,7 @@ export default async function DashboardPage() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Link
-          href="/dashboard/profiles"
+          href="/dashboard/profile"
           className="group rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 shadow-lg hover:shadow-xl transition-all active:scale-[0.98]"
         >
           {user.image_url ? (
