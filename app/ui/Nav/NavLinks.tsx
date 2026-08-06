@@ -9,12 +9,11 @@ import {
   UserIcon,
   Cog6ToothIcon,
   ArrowRightOnRectangleIcon,
-
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-
+import { logout } from '@/lib/actions';
 
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
@@ -31,11 +30,6 @@ const links = [
     name: 'Profile',
     href: '/dashboard/profile',
     icon: UserIcon,
-  },
-  {
-    name: 'SIGNS OUT',
-    href: '#',
-    icon: ArrowRightOnRectangleIcon,
   },
 ];
 
@@ -61,6 +55,15 @@ export default function NavLinks() {
           </Link>
         );
       })}
+      <form action={logout}>
+        <button
+          type="submit"
+          className="flex h-12 w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-black hover:text-white md:flex-none md:justify-start md:p-2 md:px-3"
+        >
+          <ArrowRightOnRectangleIcon className="w-6" />
+          <p className="hidden md:block">Sign out</p>
+        </button>
+      </form>
     </>
   );
 }
