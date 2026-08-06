@@ -51,7 +51,7 @@ export default function SellerProductsManager({ initialProducts }: SellerProduct
       <div className="rounded-2xl border border-dashed border-gray-300 bg-white p-8 text-center">
         <p className="text-sm text-gray-600">You have not created any products yet.</p>
         <Link
-          href="/dashboard/seller/products/new"
+          href="/dashboard/products/new"
           className="mt-4 inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white hover:bg-blue-700"
         >
           Add your first product
@@ -98,3 +98,4 @@ export default function SellerProductsManager({ initialProducts }: SellerProduct
     </div>
   );
 }
+

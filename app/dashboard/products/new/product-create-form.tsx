@@ -158,7 +158,7 @@ export default function ProductCreateForm() {
           <p>{successMessage}</p>
           <button
             type="button"
-            onClick={() => router.push('/dashboard/seller/products')}
+            onClick={() => router.push('/dashboard/products/manage')}
             className="mt-2 inline-flex rounded-lg border border-green-300 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-700 hover:bg-green-100"
           >
             View my products

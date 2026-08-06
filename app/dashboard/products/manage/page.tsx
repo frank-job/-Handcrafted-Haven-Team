@@ -41,13 +41,13 @@ export default async function SellerProductsPage() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/dashboard/seller"
+            href="/dashboard/products"
             className="rounded-xl border border-gray-300 px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-700 hover:bg-gray-100"
           >
-            Back to Seller
+            Back to Products
           </Link>
           <Link
-            href="/dashboard/seller/products/new"
+            href="/dashboard/products/new"
             className="rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white hover:bg-blue-700"
           >
             Add Product
