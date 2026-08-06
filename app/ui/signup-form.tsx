@@ -6,16 +6,26 @@ import {
   UserIcon,
   ArrowRightIcon 
 } from "@heroicons/react/24/outline";
+import { signUp } from "@/lib/actions";
+import { useActionState } from "react";
 
 export default function SignupForm() {
+  const [errorMessage, formAction, isPending] = useActionState(signUp, undefined);
+
   return (
-    <form className="space-y-3">
+    <form action={formAction} className="space-y-3">
       <div className="flex-1 rounded-3xl bg-white px-6 pb-8 pt-8 shadow-sm border border-gray-100">
         <h1 className="mb-3 font-serif text-2xl text-blue-700 font-bold">
           Join the Haven
         </h1>
-        <p className="text-sm text-gray-500 mb-6 italic">Create your artisan storefront today.</p>
-        
+<p className="text-sm text-gray-500 mb-6 italic">Create your artisan storefront today.</p>
+
+        {errorMessage?.message && (
+          <div className="mb-4 rounded-xl bg-red-50 border border-red-200 p-3 text-sm text-red-700">
+            {errorMessage.message}
+          </div>
+        )}
+
         <div className="w-full">
           {/* Full Name Field */}
           <div>
@@ -25,9 +35,9 @@ export default function SignupForm() {
             <div className="relative">
               <input
                 className="peer block w-full text-black rounded-xl border border-gray-200 py-[12px] pl-10 text-sm outline-none focus:ring-2 focus:ring-[#5F7161] transition-all"
-                id="name"
+id="username"
                 type="text"
-                name="name"
+                name="username"
                 placeholder="Enter your full name"
                 required
               />
