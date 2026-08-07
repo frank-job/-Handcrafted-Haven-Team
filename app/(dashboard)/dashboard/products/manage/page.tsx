@@ -5,6 +5,12 @@ import { sql } from '@vercel/postgres';
 import { geistMono } from '@/app/ui/fonts';
 import { listProductsBySeller } from '@/lib/server/product-store';
 import SellerProductsManager from './seller-products-manager';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Product Management',
+};
+
 
 export default async function SellerProductsPage() {
   const cookieStore = await cookies();

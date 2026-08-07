@@ -57,7 +57,7 @@ export default async function DashboardPage() {
         </Link>
 
         <Link
-          href="/dashboard/products"
+          href="/dashboard/products/manage"
           className="group rounded-2xl bg-gradient-to-br from-gray-900 to-black p-8 shadow-lg hover:shadow-xl transition-all active:scale-[0.98]"
         >
           <CubeIcon className="h-8 w-8 text-white/80 mb-4" />
