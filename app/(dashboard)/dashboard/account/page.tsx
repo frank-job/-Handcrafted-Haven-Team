@@ -4,6 +4,12 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { geistMono } from "@/app/ui/fonts";
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Account',
+};
+
 
 export default async function AccountPage() {
   const cookieStore = await cookies();

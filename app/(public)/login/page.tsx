@@ -1,7 +1,14 @@
 import HavenLogo from "@/app/ui/handLogo";
 import Image from "next/image";
-import LoginForm from "../ui/login_form";
+import LoginForm from "../../ui/login_form";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Login',
+};
+
+
 export default function LoginPage() {
   return (
       <main className="relative flex items-center justify-center min-h-screen px-4 py-12 overflow-hidden">

@@ -1,6 +1,6 @@
-import Header from '@/app/components/Header';
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getProductById } from "@/lib/server/product-store";
 import ProductReviews from "@/app/components/ProductReviews";
@@ -9,6 +9,11 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+export const metadata: Metadata = {
+  title: 'Product Details',
+};
+
+
 export default async function ProductPage({ params }: Props) {
   const { id } = await params;
   const product = await getProductById(id);
@@ -16,7 +21,7 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   return (
-    <main className="max-w-5xl mx-auto">
+    <main className="max-w-5xl mx-auto py-8">
       <Link href="/products" className="text-sm text-gray-500 hover:text-black transition-colors">
         &larr; Back to products
       </Link>

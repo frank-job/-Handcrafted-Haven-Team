@@ -18,8 +18,10 @@ import { logout } from '@/lib/actions';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
-  { name: 'Products', href: '/dashboard/products', icon: CubeIcon },
+  { name: 'Dashboard Home', href: '/dashboard', icon: HomeIcon },
+  { 
+    name: 'Products', href: '/dashboard/products/manage', 
+    icon: CubeIcon },
   {
     name: 'Account',
     href: '/dashboard/account',

@@ -4,6 +4,12 @@ import { redirect } from 'next/navigation';
 import { sql } from '@vercel/postgres';
 import { geistMono } from '@/app/ui/fonts';
 import ProductCreateForm from './product-create-form';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Add New Product',
+};
+
 
 export default async function NewSellerProductPage() {
   const cookieStore = await cookies();

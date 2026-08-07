@@ -1,7 +1,11 @@
-import HavenLogo from "@/app/ui/handLogo";
 import Image from "next/image";
 import SignupForm from "@/app/ui/signup-form";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Sign Up',
+};
 
 export default function SignupPage() {
   return (
